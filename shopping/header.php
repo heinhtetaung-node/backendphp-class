@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (isset($_POST['clear'])) {
+	unset($_SESSION['products']);
+}
 include('baseUrl.php');
 include('admins/db.php');
 include('admins/category/ctgmodels.php');
@@ -18,9 +22,24 @@ include('admins/category/ctgmodels.php');
 		<div style="width: 1180px; height: 100px; display:flex; align-items: center; justify-content: space-between;">
 			<h1>Shopping</h1>
 			<div style="width: 400px; display: flex; justify-content: space-around;">
-				<input type="text" style="height: 30px;">
+				<input type="text" style="height: 30px; margin-top:20px">
 				<h3>My account</h3>
-				<h3>Cart</h3>
+				<h3>Cart
+				<?php
+					$totalQty = 0;
+					if (isset($_SESSION['products'])) {
+						$products = $_SESSION['products'];
+						foreach ($products as $p) {
+							// $totalQty = $totalQty + $p['qty'];
+							$totalQty += $p['qty'];
+						}
+					}
+					if ($totalQty > 0) {
+						echo '('.$totalQty.')';
+					}
+				?>
+				<form action="" method="POST"><button name="clear" type="submit">Clear Cart</a></button></form>
+				</h3>
 			</div>
 		</div>		
 		
