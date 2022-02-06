@@ -24,7 +24,9 @@ include('admins/category/ctgmodels.php');
 			<div style="width: 400px; display: flex; justify-content: space-around;">
 				<input type="text" style="height: 30px; margin-top:20px">
 				<h3>My account</h3>
-				<h3>Cart
+				<h3>
+				<a href="checkout.php">
+				Cart
 				<?php
 					$totalQty = 0;
 					if (isset($_SESSION['products'])) {
@@ -38,8 +40,9 @@ include('admins/category/ctgmodels.php');
 						echo '('.$totalQty.')';
 					}
 				?>
+				</a>
 				<form action="" method="POST"><button name="clear" type="submit">Clear Cart</a></button></form>
-				</h3>
+				</h3>				
 			</div>
 		</div>		
 		
