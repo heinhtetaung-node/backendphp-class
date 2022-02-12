@@ -75,7 +75,18 @@ foreach ($products as $key => $pro) {
 		<td></td>
 	</tr>
 </tfoot>
-</table>
 
+</table>
+<?php
+if (isset($_SESSION['login_user'])) : ?>
+	<a href="order.php"><button>Confirm Checkout</button></a><?php
+endif; 
+?>
+
+<?php
+if (!isset($_SESSION['login_user'])) : ?>
+	<a href="login.php?redirect=order.php"><button>Login/Register to Checkout</button></a><?php
+endif; 
+?>
 </div>
 <?php include('footer.php'); ?>
