@@ -2,6 +2,9 @@
 
 include('../header.php');
 include('../user_session.php');
-?>
+include('OrderModel.php');
+$login_user = $_SESSION['login_user'];
+[$orders, $total] = getOrders($login_user['id']);
 
-<h1>Customer Order Page</h1>
+include('ordertable.php');
+?>

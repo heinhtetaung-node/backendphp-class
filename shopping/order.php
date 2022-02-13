@@ -13,7 +13,11 @@ if (isset($_POST['pay'])) {
 
 	// save to order 
 	// insert
-	insertOrder();
+	$res = insertOrder();
+	if ($res == true) {
+		unset($_SESSION['products']);
+		header('Location: customer/order.php');
+	}
 }
 ?>
 <form action="" method="POST">

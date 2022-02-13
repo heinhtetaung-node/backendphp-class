@@ -12,4 +12,15 @@ $baseUrl.= $_SERVER['HTTP_HOST'];
 $uri = $_SERVER['REQUEST_URI'];    
 $uriArr = explode('/', $uri); // change string to array
 
-$baseUrl .= '/'.$uriArr[1].'/'.$uriArr[2].'/';
+$baseUrl .= '/'.$uriArr[1].'/'.(($uriArr[2] != 'admins') ? 'admins' : $uriArr[2]).'/';
+
+
+// if ($uriArr[2] != 'admins') {
+//      echo 'admins';
+// } else {
+//      echo $uriArr[2];
+// }
+          // same
+// echo ($uriArr[2] != 'admins') ? 'admins' : $uriArr[2];
+          // same only for true false
+// (($uriArr[2] != 'admins') ?: 'admins')

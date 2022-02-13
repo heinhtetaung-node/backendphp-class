@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() != 2) {
+	session_start();
+}
 if (isset($_POST['clear'])) {
 	unset($_SESSION['products']);
 }
