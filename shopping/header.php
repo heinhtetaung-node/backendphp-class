@@ -1,13 +1,13 @@
 <?php
-if (session_status() != 2) {
+if (session_status() != 2) { // check session is already start // 2 is alraedy start
 	session_start();
 }
 if (isset($_POST['clear'])) {
 	unset($_SESSION['products']);
 }
-include('admins/db.php');
-include('admins/category/ctgmodels.php');
-include('baseUrl.php');
+require_once(__DIR__.'/admins/db.php');
+require_once(__DIR__.'/admins/category/ctgmodels.php');
+require_once(__DIR__.'/baseUrl.php');
 [$cats, $catsTotal] = getcategories(10, 0);
 ?>
 <!DOCTYPE html>

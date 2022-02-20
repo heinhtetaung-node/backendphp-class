@@ -1,7 +1,7 @@
 <?php 
-include('../admin_session.php');
-include('../navi.php');
-include('sctgmodels.php');
+require_once(__DIR__.'\../admin_session.php');
+require_once(__DIR__.'\../navi.php');
+require_once(__DIR__.'/sctgmodels.php');
 
 if (isset($_POST['delete'])) {
 	$id = $_POST['delete'];

@@ -1,6 +1,6 @@
 <?php
-include('header.php');
-include('admins/item/itemModels.php');
+require_once(__DIR__.'/header.php');
+require_once(__DIR__.'/admins/item/itemModels.php');
 
 if (isset($_POST['update'])) {
 	$qty = $_POST['qty'];
@@ -38,7 +38,12 @@ function removeProductFromSession($key) {
 
 <tbody>
 <?php
-$products = $_SESSION['products'];
+// $products = [];
+// if (isset($_SESSION['products'])) {
+// 	$products = $_SESSION['products'];
+// }
+
+$products = (isset($_SESSION['products'])) ? $_SESSION['products'] : [];
 $alltotal = 0;
 foreach ($products as $key => $pro) {
 	$item = getitem($pro['id']);
@@ -89,4 +94,4 @@ if (!isset($_SESSION['login_user'])) : ?>
 endif; 
 ?>
 </div>
-<?php include('footer.php'); ?>
+<?php require_once('footer.php'); ?>

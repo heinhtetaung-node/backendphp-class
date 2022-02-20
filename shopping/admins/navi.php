@@ -1,8 +1,8 @@
 <?php
 
-if (!isset($GLOBALS['baseUrl'])) {
-     include('baseurl.php');
-}
+// if (!isset($GLOBALS['baseUrl'])) {
+     require_once(__DIR__.'/baseurl.php');
+// }
 
 
 echo "<a href='${baseUrl}category/index.php'>Category</a> | ";

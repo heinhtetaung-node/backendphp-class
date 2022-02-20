@@ -1,7 +1,7 @@
 <?php
-include('../admin_session.php');
-include('../navi.php');
-include('AdminModel.php');
+require_once(__DIR__.'\../admin_session.php');
+require_once(__DIR__.'\../navi.php');
+require_once(__DIR__.'/AdminModel.php');
 
 $err = [];
 if (isset($_POST['add'])) {

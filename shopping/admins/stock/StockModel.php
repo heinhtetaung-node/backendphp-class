@@ -1,17 +1,17 @@
 <?php
 
-$uri = $_SERVER['REQUEST_URI']; 
-$uriArr = explode('/', $uri);
-$escapeFolder = '';
+// $uri = $_SERVER['REQUEST_URI']; 
+// $uriArr = explode('/', $uri);
+// $escapeFolder = '';
 
-// if ($uriArr[3] == 'item' || $uriArr[3] == 'stock') {
-if ($uriArr[2] == 'admins' && count($uriArr) > 3) {
-	$escapeFolder = '../';
-}
+// // if ($uriArr[3] == 'item' || $uriArr[3] == 'stock') {
+// if ($uriArr[2] == 'admins' && count($uriArr) > 3) {
+// 	$escapeFolder = '../';
+// }
 
-if (!isset($GLOBALS['dbcon'])) {
-	include($escapeFolder.'db.php');
-}
+// if (!isset($GLOBALS['dbcon'])) {
+	require_once(__DIR__.'\../db.php');
+// }
 
 function getStockByItemId($item_id) {
 	$sql = "select * from stock where item_id = '${item_id}'";

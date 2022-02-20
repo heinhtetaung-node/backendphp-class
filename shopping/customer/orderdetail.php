@@ -1,20 +1,20 @@
 <?php
 session_start();
-
+require_once(__DIR__.'\../baseurl.php');
 if (!isset($_SESSION['login_user']) && !isset($_SESSION['user'])) {	
-	header('Location: ../login.php');
+	header("Location: ${baseUrl}login.php");
 }
 
 if (isset($_SESSION['login_user'])) {
 
-	include('../header.php');
+	require_once(__DIR__.'\../header.php');
 
 } else if(isset($_SESSION['user'])) {
 
-	include('../admins/navi.php');
-	include('../admins/db.php');
+	require_once(__DIR__.'\../admins/navi.php');
+	require_once(__DIR__.'\../admins/db.php');
 }
-include('OrderModel.php');
+require_once(__DIR__.'/OrderModel.php');
 
 $order_id = $_GET['id'];
 $arr = getOrderDetail($order_id);

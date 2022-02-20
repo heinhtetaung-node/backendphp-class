@@ -1,14 +1,14 @@
 <?php
 session_start();
-include('../admin/AdminModel.php');
-
+require_once(__DIR__.'\../admin/AdminModel.php');
+require_once(__DIR__.'\../baseurl.php');
 $user = '';
 if (isset($_POST['login'])) {
 	$user = login($_POST);	
 	if ($user != NULL) {
 		$_SESSION['user'] = $user;
 		$_SESSION['login_time'] = date('Y-m-d H:m:s');
-		header('Location: ../index.php');
+		header("Location: ${baseUrl}index.php");
 	}
 }
 

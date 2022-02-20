@@ -1,16 +1,16 @@
 <?php
- 
-$uri = $_SERVER['REQUEST_URI']; 
-$uriArr = explode('/', $uri);
-$escapeFolder = '';
+// they dont need because of __DIR__ and require_once 
+// $uri = $_SERVER['REQUEST_URI']; 
+// $uriArr = explode('/', $uri);
+// $escapeFolder = '';
 
-if ($uriArr[2] == 'admins' && count($uriArr) > 3) {
-	$escapeFolder = '../';
-}
+// if ($uriArr[2] == 'admins' && count($uriArr) > 3) {
+// 	$escapeFolder = '../';
+// }
 
-if (!isset($GLOBALS['dbcon'])) {
-	include($escapeFolder.'db.php');
-}
+// if (!isset($GLOBALS['dbcon'])) {
+	require_once(__DIR__.'\../db.php');
+// }
 
 function getitems($limit=2, $offset=0, $search=null, $orderby='id', $order='desc') {
 	$sql = "SELECT item.*,

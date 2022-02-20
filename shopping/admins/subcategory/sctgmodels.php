@@ -1,22 +1,22 @@
 <?php
 
-$baseUrl='';
-if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') 
-     $baseUrl = "https://";   
-else  
-     $baseUrl = "http://";   
-$baseUrl.= $_SERVER['HTTP_HOST'];   
-$uri = $_SERVER['REQUEST_URI']; 
-$uriArr = explode('/', $uri);
-$escapeFolder = '';
+// $baseUrl='';
+// if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') 
+//      $baseUrl = "https://";   
+// else  
+//      $baseUrl = "http://";   
+// $baseUrl.= $_SERVER['HTTP_HOST'];   
+// $uri = $_SERVER['REQUEST_URI']; 
+// $uriArr = explode('/', $uri);
+// $escapeFolder = '';
 
-if ($uriArr[3] == 'subcategory') {
-	$escapeFolder = '../';
-}
+// if ($uriArr[3] == 'subcategory') {
+// 	$escapeFolder = '../';
+// }
 
-if (!isset($GLOBALS['dbcon'])) {
-	include($escapeFolder.'db.php');
-}
+// if (!isset($GLOBALS['dbcon'])) {
+	require_once(__DIR__.'\../db.php');
+// }
 
 function getsubcategories($limit=2, $offset=0, $search=null, $orderby='id', $order='desc') {
 	$sql = "SELECT subcategory.*, 

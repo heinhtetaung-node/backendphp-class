@@ -1,10 +1,10 @@
 <?php
 session_start();
-include('../db.php');
-include('../navi.php');
-include('../../customer/OrderModel.php');
+require_once(__DIR__.'\../db.php');
+require_once(__DIR__.'\../navi.php');
+require_once(__DIR__.'\../../customer/OrderModel.php');
 
 [$orders, $total] = getOrders();
 
-include('../../customer/ordertable.php');
+require_once('../../customer/ordertable.php');
 ?>

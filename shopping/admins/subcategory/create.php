@@ -1,8 +1,8 @@
 <?php
-include('../admin_session.php');
-include('../navi.php');
-include('sctgmodels.php');
-include('../category/ctgmodels.php');
+require_once(__DIR__.'\../admin_session.php');
+require_once(__DIR__.'\../navi.php');
+require_once(__DIR__.'/sctgmodels.php');
+require_once(__DIR__.'\../category/ctgmodels.php');
 
 if (isset($_POST['add'])) {
 	insertsubcategory($_POST);

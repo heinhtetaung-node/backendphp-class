@@ -1,6 +1,6 @@
 <?php
-include('header.php');
-include('admins/item/itemModels.php');
+require_once(__DIR__.'/header.php');
+require_once(__DIR__.'/admins/item/itemModels.php');
 $category_id = $_GET['cat'];
 [$catItems1, $cat1total] = getItemsByCategory($category_id, 10);
 ?>
@@ -22,4 +22,4 @@ $category_id = $_GET['cat'];
 	<?php endforeach; ?>
 </div>
 
-<?php include('footer.php'); ?>
+<?php require_once(__DIR__.'/footer.php'); ?>

@@ -1,8 +1,8 @@
 <?php 
-include('../admin_session.php');
-include('../navi.php');
-include('itemModels.php');
-include('../subcategory/sctgmodels.php');
+require_once(__DIR__.'\../admin_session.php');
+require_once(__DIR__.'\../navi.php');
+require_once(__DIR__.'/itemModels.php');
+require_once(__DIR__.'\../subcategory/sctgmodels.php');
 
 $id = $_GET['id'];
 

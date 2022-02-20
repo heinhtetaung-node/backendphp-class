@@ -1,18 +1,18 @@
 <?php
 
-// include('../../db.php');
+// require_once('../../db.php');
 
-$uri = $_SERVER['REQUEST_URI'];    
-$uriArr = explode('/', $uri); // change string to array
+// $uri = $_SERVER['REQUEST_URI'];    
+// $uriArr = explode('/', $uri); // change string to array
 
-$escapeFolder = '';
-if ($uriArr[3] == 'admin' || $uriArr[3] == 'login') {
-	$escapeFolder = '../';
-}
+// $escapeFolder = '';
+// if ($uriArr[3] == 'admin' || $uriArr[3] == 'login') {
+// 	$escapeFolder = '../';
+// }
 
-if (!isset($GLOBALS['dbcon'])) {
-	include($escapeFolder."db.php");
-}
+// if (!isset($GLOBALS['dbcon'])) {
+	require_once(__DIR__."\../db.php");
+// }
 
 
 function insertAdmin( $data /* $_POST */) {

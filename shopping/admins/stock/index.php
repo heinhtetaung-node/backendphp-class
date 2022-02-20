@@ -1,7 +1,7 @@
 <?php 
-include('../admin_session.php');
-include('../navi.php');
-include('StockModel.php');
+require_once(__DIR__.'\../admin_session.php');
+require_once(__DIR__.'\../navi.php');
+require_once(__DIR__.'/StockModel.php');
 
 [$stocks, $total] = getStocks();
 ?>

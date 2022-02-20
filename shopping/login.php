@@ -1,7 +1,7 @@
 <?php
 
-include('header.php');
-include('customer/CustomerModel.php');
+require_once(__DIR__.'/header.php');
+require_once(__DIR__.'/customer/CustomerModel.php');
 
 $redirect = '';
 if (isset($_GET['redirect'])) {

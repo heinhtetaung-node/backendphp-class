@@ -1,22 +1,22 @@
 <?php
 
-$baseUrl='';
-if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') 
-     $baseUrl = "https://";   
-else  
-     $baseUrl = "http://";   
-$baseUrl.= $_SERVER['HTTP_HOST'];   
-$uri = $_SERVER['REQUEST_URI']; 
-$uriArr = explode('/', $uri);
-$escapeFolder = '';
+// $baseUrl='';
+// if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') 
+//      $baseUrl = "https://";   
+// else  
+//      $baseUrl = "http://";   
+// $baseUrl.= $_SERVER['HTTP_HOST'];   
+// $uri = $_SERVER['REQUEST_URI']; 
+// $uriArr = explode('/', $uri);
+// $escapeFolder = '';
 
-if ($uriArr[2] == 'admins' && count($uriArr) > 3) {
-	$escapeFolder = '../';
-}
+// if ($uriArr[2] == 'admins' && count($uriArr) > 3) {
+// 	$escapeFolder = '../';
+// }
 
-if (!isset($GLOBALS['dbcon'])) {
-	include($escapeFolder.'db.php');
-}
+// if (!isset($GLOBALS['dbcon'])) {
+	require_once(__DIR__.'\../db.php');
+// }
 
 
 function getcategories($limit=2, $offset=0, $search=null, $orderby='id', $order='desc') {

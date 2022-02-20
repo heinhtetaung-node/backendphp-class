@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('baseurl.php');
+require_once(__DIR__.'/baseurl.php');
 
 if( !isset($_SESSION['user']) ) {
 	$url = str_replace('http://localhost', '', $baseUrl);
@@ -8,7 +8,7 @@ if( !isset($_SESSION['user']) ) {
 }
 
 
-include('navi.php');
+require_once('navi.php');
 
 ?>
 
