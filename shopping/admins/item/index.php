@@ -60,6 +60,7 @@ $noOfPages = ceil($totalitem/$limit);
 				<th>Subcategory<a style="text-decoration: none; color: black;" href="index.php?search=<?php echo $search; ?>&orderby=subcategory_id&order=asc">&#9650;</a><a style="text-decoration: none; color: black" href="index.php?search=<?php echo $search; ?>&orderby=subcategory_id&order=desc">&#9660;</a></th>
 				<th>Price<a style="text-decoration: none; color: black;" href="index.php?search=<?php echo $search; ?>&orderby=price&order=asc">&#9650;</a><a style="text-decoration: none; color: black" href="index.php?search=<?php echo $search; ?>&orderby=price&order=desc">&#9660;</a></th>
 				<th>Cost<a style="text-decoration: none; color: black;" href="index.php?search=<?php echo $search; ?>&orderby=cost&order=asc">&#9650;</a><a style="text-decoration: none; color: black" href="index.php?search=<?php echo $search; ?>&orderby=cost&order=desc">&#9660;</a></th>
+				<th>Ordered</th>
 				<th></th>
 			</tr>
 			<?php foreach ($arr as $items) : ?>
@@ -69,6 +70,7 @@ $noOfPages = ceil($totalitem/$limit);
 				<td style="border: 1px solid black; padding: 7px"> <?php echo $items['subcategory_title']; ?> </td>
 				<td style="border: 1px solid black; padding: 7px"> <?php echo $items['price']; ?> </td>
 				<td style="border: 1px solid black; padding: 7px"> <?php echo $items['cost']; ?> </td>
+				<td style="border: 1px solid black; padding: 7px"><?php echo $items['total_order_qtys']; ?></td>
 				<td style="border: 1px solid black; padding: 7px">
 					<a href="edit.php?id=<?php echo $items['id']; ?>"><button type="button">Edit</button></a>
 					<button name="delete" value="<?php echo $items['id']; ?>">Delete</button>

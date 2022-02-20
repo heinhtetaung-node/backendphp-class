@@ -13,13 +13,16 @@
 // }
 
 function getitems($limit=2, $offset=0, $search=null, $orderby='id', $order='desc') {
-	$sql = "SELECT item.*,
+	$sql = "SELECT 
+	i.*,
+	(SELECT SUM(qty) FROM `order_items` WHERE item_id = i.id) AS total_order_qtys,
 	subcategory.title AS subcategory_title 
-	FROM item LEFT JOIN subcategory
-	ON item.subcategory_id = subcategory.id
-	WHERE item.title like '%$search%' 
-	ORDER BY item.${orderby} ${order} LIMIT ${limit} OFFSET ${offset}";
-
+	FROM item AS i 
+	LEFT JOIN subcategory
+	ON i.subcategory_id = subcategory.id	
+	WHERE i.title like '%$search%' 
+	ORDER BY i.${orderby} ${order} LIMIT ${limit} OFFSET ${offset}";
+	
 	$result = $GLOBALS['dbcon']->query($sql);
 	$array = $result->fetch_all(MYSQLI_ASSOC);
 	
